@@ -10,7 +10,7 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/Sai7xp/gomuxmongo/controllers"
+	"github.com/Sai7xp/gomuxmongo/controllers" // importing local packages
 	"github.com/Sai7xp/gomuxmongo/routes"
 )
 

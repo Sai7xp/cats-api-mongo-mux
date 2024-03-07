@@ -97,7 +97,7 @@ func AddCatHandler(rw http.ResponseWriter, r *http.Request) {
 // Fetch all cats info
 func GetAllCatsHandler(rw http.ResponseWriter, r *http.Request) {
 	responseToUser := make(map[string]interface{})
-	var allCats []models.Cat
+	allCats := []models.Cat{}
 
 	/// mongo query
 	findOptions := options.Find().SetSort(map[string]int{"ageInMonths": -1}) // 1 for ascending order, -1 for descending order
@@ -111,7 +111,7 @@ func GetAllCatsHandler(rw http.ResponseWriter, r *http.Request) {
 
 	for cursor.Next(context.TODO()) {
 		var eachCat models.Cat
-		if cursor.Decode(&eachCat); err != nil {
+		if err := cursor.Decode(&eachCat); err != nil {
 			fmt.Println(err)
 		}
 		allCats = append(allCats, eachCat)
