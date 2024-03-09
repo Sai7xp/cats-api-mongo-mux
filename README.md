@@ -26,7 +26,8 @@ Run in detached Mode -d
 
 ```bash
 # docker run -d -p 6000:6000 cats-api
-docker run -p 6000:6000 --link mongodatabase:mongo cats-api
+docker run -p 6000:6000 --link mongo_db:mongo cats-api
+# mongo_db - container name
 ```
 Docker run command takes an image and builds the container out of it and runs it
 
